@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICFES PRO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+    <main>
+
+      <div class="py-5 text-center">
+        <h1>Implementación de modelo de Aprendizaje Automático para la prediccion de rendimiento pruebas ICFES Saber Pro
+        </h1>
+        <p class="lead">El formulario presente en esta aplicación web hace parte del apartado <b>implementacion</b> de
+          los modelos resultantes del proyecto denominado <b>MODELO DESARROLLADO CON EL DATASET GENERADO POR EL MÉTODO
+            DE SELECCIÓN DE ATRIBUTOS CAERAN PARA EL MODELO DE PREDICCIÓN DE RENDIMIENTO EN LAS PRUEBAS SABER PRO</b>
+          bajo la autoría del Ing. Jairo Acosta Solano, dicha implementación fue llevada a cabo por lo autores <b>Julio
+            Ayala</b> y <b>Carlos Espitia</b> </p>
+      </div>
+
+
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-success">Lista de predicciones</span>
+            <span id="contador" class="badge bg-success rounded-pill">0</span>
+          </h4>
+          <!-- <li class="list-group-item d-flex justify-content-between lh-sm">
+                      <div>
+                        <h6 class="my-0">Predict 1</h6>
+                        <small class="text-muted">params</small>
+                      </div>
+                      <span class="text-muted">Value</span>
+                    </li> -->
+          <!-- Insercion de prediciciones aquí -->
+          <ul id="predicciones" class="list-group mb-3">
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Parametros del modelo</h4>
+          <form class="needs-validation" id="formulario">
+            <div class="row g-3">
+
+
+              <!-- param1 -->
+              <div class="col-sm-12">
+                <label htmlFor="firstName" class="form-label">Ingresa un nombre con el cual quieres identificar tu predicción:</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">Nombre:</span>
+                  <input type="text" class="form-control" placeholder="Idenficador de predicción" name="identificador" required />
+                  <div class="invalid-feedback">
+                    Valor necesario
+                  </div>
+                </div>
+              </div>
+
+              <!-- param1 -->
+              <div class="col-sm-6">
+                <label htmlFor="firstName" class="form-label">Edad del estudiante</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text">Años:</span>
+                  <input type="text" class="form-control" placeholder="0" name="edad" required />
+                  <div class="invalid-feedback">
+                    Valor necesario
+                  </div>
+                </div>
+              </div>
+
+              <!-- param 59 y param60 -->
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">Pagó matricula mediante Beca</label>
+                <select class="form-select" id="" name="beca" required>
+                  <option value="param60">Si</option>
+                  <option value="param59">No</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">Caracter de Estudio en institución</label>
+                <select class="form-select" id="" name="caracter" required>
+                  <option value="param2">Institución Universitaria</option>
+                  <option value="param3">Institución Tecnica profesional o Tecnologia</option>
+                  <option value="param4">Universidad</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">Metodo del Programa que estudió</label>
+                <select class="form-select" id="" name="metodo" required>
+                  <option value="param5">A Distancia</option>
+                  <option value="param6">A Distancia Virtual</option>
+                  <option value="param7">Presencial</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿En su familia tienen horno microondas o a gas?</label>
+                <select class="form-select" id="" name="horno" required>
+                  <option value="param8">No</option>
+                  <option value="param9">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <!-- param 10 -->
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿Pagó matricula propia?</label>
+                <select class="form-select" id="" name="pagoMatriculaPropia" required>
+                  <option value="param10">No</option>
+                  <option value="param11">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+             
+              
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿Alguien tiene automovil en tu familia?</label>
+                <select class="form-select" id="" name="automovil" required>
+                  <option value="param12">No</option>
+                  <option value="param13">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿Tienes intenet en tu casa?</label>
+                <select class="form-select" id="" name="internet" required>
+                  <option value="param14">No</option>
+                  <option value="param15">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿Tienes computador en tu casa?</label>
+                <select class="form-select" id="" name="computador" required>
+                  <option value="param16">No</option>
+                  <option value="param17">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">¿Tienes consola de videojuegos en tu casa?</label>
+                <select class="form-select" id="" name="consola" required>
+                  <option value="param18">No</option>
+                  <option value="param19">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label htmlFor="country" class="form-label">¿Tus papas pagaron la matricula?</label>
+                <select class="form-select" id="" name="papasMatricula" required>
+                  <option value="param20">No</option>
+                  <option value="param21">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <label htmlFor="country" class="form-label">Area de residencia</label>
+                <select class="form-select" id="" name="area" required>
+                  <option value="param22">Area Rural</option>
+                  <option value="param23">Area Municipal o Urbana</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label htmlFor="country" class="form-label">¿Tienen motocicleta en tu familia?</label>
+                <select class="form-select" id="" name="motocicleta" required>
+                  <option value="param24">No</option>
+                  <option value="param25">Si</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">Nucleo Problemico segun tu carrera</label>
+                <select class="form-select" id="" name="nucleo" required>
+                  <option value="param26">Pregrado Administración</option>
+                  <option value="param27">Pregrado en Contaduría Pública</option>
+                  <option value="param28">Pregrado en Derecho y afines</option>
+                  <option value="param29">Pregrado en Educación</option>
+                  <option value="param30">Pregrado en Ingeniería Industrial y afines</option>
+                  <option value="param32">Pregrado en Psicología</option>
+                  <option value="param33">Pregrado sin calificar</option>
+                  <option value="param31">Otro Pregrado</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label htmlFor="country" class="form-label">Valor de la matricula de la universidad</label>
+                <select class="form-select" id="" name="matricula" required>
+                  <option value="param41">No pagó matricula</option>
+                  <option value="param40">Menos de 500 mil</option>
+                  <option value="param38">Entre 500 mil y menos de 1 millon</option>
+                  <option value="param34">Entre 1 millon y menos de 2.5 millones</option>
+                  <option value="param35">Entre 2.5 millones y menos de 4 millones</option>
+                  <option value="param36">Entre 4 millones y menos de 5.5 millones</option>
+                  <option value="param37">Entre 5.5 millones y menos de 7 millones</option>
+                  <option value="param39">Mas de 7 millones</option>
+                </select>
+                <div class="invalid-feedback">
+                  Parametro necesario
+                </div>
+            </div>
+
+            <div class="col-md-4">
+              <label htmlFor="country" class="form-label">Lugar de Presentacion</label>
+              <select class="form-select" id="" name="lugarPresentacion" required>
+                <option value="param42">Antioquía</option>
+                <option value="param43">Bogotá</option>
+                <option value="param44">Otro</option>
+              </select>
+              <div class="invalid-feedback">
+                Parametro necesario
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label htmlFor="country" class="form-label">¿Tienes lavadora en tu casa?</label>
+              <select class="form-select" id="" name="lavadora" required>
+                <option value="param45">No</option>
+                <option value="param46">Si</option>
+              </select>
+              <div class="invalid-feedback">
+                Parametro necesario
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label htmlFor="country" class="form-label">Estrato</label>
+              <select class="form-select" id="" name="estrato" required>
+                <option value="param47">Estrato 1</option>
+                <option value="param48">Estrato 2</option>
+                <option value="param49">Estrato 3</option>
+                <option value="param50">Estrato 4</option>
+                <option value="param51">Estrato 5 o 6 - Sin estrato</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Parametro necesario
+              </div>
+            </div>
+              
+
+            <div class="col-md-6">
+              <label htmlFor="country" class="form-label">Género</label>
+              <select class="form-select" id="" name="genero" required>
+                <option value="param52">Masculino</option>
+                <option value="param53">Femenino</option>
+              </select>
+              <div class="invalid-feedback">
+                Parametro necesario
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label htmlFor="country" class="form-label">Origen de la institución</label>
+              <select class="form-select" id="" name="origen" required>
+                <option value="param54">No Oficial - Corporación</option>
+                <option value="param55">No Oficial - Fundación</option>
+                <option value="param56">Oficial - Departamental</option>
+                <option value="param57">Oficial - Nacional</option>
+                <option value="param58">Otro origen</option>
+              </select>
+              <div class="invalid-feedback">
+                Parametro necesario
+              </div>
+            </div>
+
+              
+
+
+            </div>
+
+            <br>
+            <hr>
+            <br>
+            <input id="predecir" type="submit" value="Predecir" class="btn btn-success col-md-12" />
+
+            <hr class="my-4" />
+
+                    <!-- alerta de resultado -->
+            <div id = "resultado" class="alert alert-success" role="alert" hidden>
+                     
+            </div>
+          </form>
+        </div>
+
+
+    </main>
+  </div>
+
+
+  <script>
+    const $formulario = document.getElementById('formulario');
+    let cont = 0;
+
+
+    $formulario.addEventListener('submit', async(e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      const predecirBtn = document.querySelector('#predecir');
+      predecirBtn.setAttribute('disabled', true);
+
+      //lectura de campos
+      const edad                  = e.target.edad.value; //param1
+      const caracter                  = e.target.caracter.value; 
+      const automovil                   = e.target.automovil.value; //
+      const internet                  = e.target.internet.value; //
+      const computador                  =  e.target.computador.value; //
+      const consola                   =  e.target.consola.value; //
+      const papasMatricula                  =  e.target.papasMatricula.value; //
+      const area                  =  e.target.area.value; //
+      const nucleo                  =  e.target.nucleo.value; //
+      const matricula                   =  e.target.matricula.value; //
+      const lugarPresentacion                   =  e.target.lugarPresentacion.value; //
+      const lavadora                  =  e.target.lavadora.value; //
+      const motocicleta                   =  e.target.motocicleta.value; //
+      const metodo                  = e.target.metodo.value; //
+      const horno                 = e.target.horno.value; //
+      const pagoMatriculaPropia                 = e.target.pagoMatriculaPropia.value; //
+      const estrato                 = e.target.estrato.value; //
+      const genero                  = e.target.genero.value; //
+      const origen                  = e.target.origen.value; //
+      const beca                  = e.target.beca.value; //param59 y param60
+
+
+
+      if(Number.isNaN( Number(edad)) ){
+        window.alert("El campo edad deben ser un valor numerico entero" )
+        predecirBtn.removeAttribute('disabled');
+        return;
+      }
+      
+
+
+      const data = {
+          param1: 0, param2: 0, param3: 0, param4: 0, param5: 0, param6: 0, param7: 0, param8: 0, param9: 0, param10: 0, 
+          param11: 0, param12: 0, param13: 0, param14: 0, param15: 0, param16: 0, param17: 0, param18: 0, param19: 0, param20: 0,
+          param21: 0, param22: 0, param23: 0, param24: 0, param25: 0, param26: 0, param27: 0, param28: 0, param29: 0, param30: 0,
+          param31: 0, param32: 0, param33: 0, param34: 0, param35: 0, param36: 0, param37: 0, param38: 0, param39: 0, param40: 0,
+          param41: 0, param42: 0, param43: 0, param44: 0, param45: 0, param46: 0, param47: 0, param48: 0, param49: 0, param50: 0,
+          param51: 0, param52: 0, param53: 0, param54: 0, param55: 0, param56: 0, param57: 0, param58: 0, param59: 0, param60: 0,
+      }
+
+      //modificacion de data de envio
+      data['param1'] = Number(edad);
+
+
+      data[caracter           ]=1;      
+      data[automovil          ]=1;
+      data[internet           ]=1;
+      data[computador         ]=1;
+      data[consola            ]=1;
+      data[papasMatricula     ]=1;
+      data[area               ]=1;
+      data[nucleo             ]=1;
+      data[matricula          ]=1;
+      data[lugarPresentacion  ]=1;
+      data[lavadora           ]=1;
+      data[motocicleta        ]=1;
+      data[metodo             ]=1;
+      data[horno              ]=1;
+      data[pagoMatriculaPropia]=1;
+      data[estrato            ]=1;
+      data[genero             ]=1;
+      data[origen             ]=1;
+      data[beca               ]=1;
+
+      console.log(data)
+
+
+      //Hacer peticion para predecir
+      const resolve = await fetch('http://127.0.0.1:8000/predict',{
+                method: "POST",
+                body:JSON.stringify(data), 
+                headers:{
+                    contentType:"application/json",
+                },
+              })
+      const res = await resolve.json()
+
+      console.log('respuesta:', res)
+  
+
+      
+
+        const listaDePrediciones = document.querySelector('#predicciones');
+        const resultadoDiv = document.querySelector('#resultado')
+        const contador = document.querySelector('#contador');
+        
+        
+
+
+        //Creacion de elementos
+        const $li = document.createElement('li');
+                $li.setAttribute('class', 'list-group-item d-flex justify-content-between lh-sm');
+            const $div = document.createElement('div');
+            const $h6 = document.createElement('h6');
+                $h6.setAttribute('class', 'my-0')
+                $h6.textContent = `ID: ${e.target.identificador.value}`
+            const $small = document.createElement('small');
+                $small.setAttribute('class', 'text-muted')
+                $small.textContent = `${(res?.result) ?'Felicitaciones es muy posible que pases el examen ICFES SaberPro': 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte '}` 
+            const $spam = document.createElement('spam');
+                $spam.setAttribute('class', 'text-muted')
+                $spam.textContent = `Prediccion #${cont++}`
+                
+            $div.appendChild($h6)
+            $div.appendChild($small)
+            $li.appendChild($div);
+            $li.appendChild($spam);
+            listaDePrediciones.prepend($li)
+
+            contador.textContent = cont;
+            
+            if(res?.result == 0){
+              window.alert( 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte ')
+              resultadoDiv.setAttribute('class', 'alert alert-success');
+              resultadoDiv.textContent = 'Felicitaciones es muy posible que pases el examen ICFES SaberPro'
+              resultadoDiv.removeAttribute('hidden')
+            }else{
+                window.alert('Felicitaciones es muy posible que pases el examen ICFES SaberPro')
+                resultadoDiv.setAttribute('class', 'alert alert-danger');
+                resultadoDiv.textContent = 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte '
+                resultadoDiv.removeAttribute('hidden')
+              }
+              setTimeout(() => {
+                resultadoDiv.setAttribute('hidden', true)
+              }, 2500);
+              
+              
+              //Seteo de campos
+              e.target.edad.value = null
+              predecirBtn.removeAttribute('disabled')
+            })
+        
+
+
+
+
+  
+  </script>
+</body>
+
+</html>
