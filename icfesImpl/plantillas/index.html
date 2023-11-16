@@ -15,11 +15,11 @@
     <main>
 
       <div class="py-5 text-center">
-        <h1>Implementación de modelo de Aprendizaje Automático para la prediccion de rendimiento pruebas ICFES Saber Pro
+        <h1>IMPLEMENTACIÓN DE UN MODELO PARA LA PREDICCIÓN DEL RENDIMIENTO DE LOS ESTUDIANTES EN LA PRUEBA SABER PRO
         </h1>
         <p class="lead">El formulario presente en esta aplicación web hace parte del apartado <b>implementacion</b> de
           los modelos resultantes del proyecto denominado <b>MODELO DESARROLLADO CON EL DATASET GENERADO POR EL MÉTODO
-            DE SELECCIÓN DE ATRIBUTOS CAERAN PARA EL MODELO DE PREDICCIÓN DE RENDIMIENTO EN LAS PRUEBAS SABER PRO</b>
+            DE SELECCIÓN DE ATRIBUTOS CORAERAN PARA EL MODELO DE PREDICCIÓN DE RENDIMIENTO EN LAS PRUEBAS SABER PRO</b>
           bajo la autoría del Ing. Jairo Acosta Solano, dicha implementación fue llevada a cabo por lo autores <b>Julio
             Ayala</b> y <b>Carlos Espitia</b> </p>
       </div>
@@ -449,7 +449,7 @@
                 $h6.textContent = `ID: ${e.target.identificador.value}`
             const $small = document.createElement('small');
                 $small.setAttribute('class', 'text-muted')
-                $small.textContent = `${(res?.result) ?'Felicitaciones es muy posible que pases el examen ICFES SaberPro': 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte '}` 
+                $small.textContent = `${(res?.result) ?'Felicidades, te encuentras por encima de la media de los estudiantes que aprobaron el examen ICFES SaberPro': 'Lo sentimos, te encuentras por debajo de la media de los estudiantes que aprobaron el examen ICFES SaberPro'}` 
             const $spam = document.createElement('spam');
                 $spam.setAttribute('class', 'text-muted')
                 $spam.textContent = `Prediccion #${cont++}`
@@ -462,15 +462,15 @@
 
             contador.textContent = cont;
             
-            if(res?.result == 0){
-              window.alert( 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte ')
+            if(res?.result == 1){
+              window.alert( 'Felicidades, te encuentras por encima de la media de los estudiantes que aprobaron el examen ICFES SaberPro')
               resultadoDiv.setAttribute('class', 'alert alert-success');
-              resultadoDiv.textContent = 'Felicitaciones es muy posible que pases el examen ICFES SaberPro'
+              resultadoDiv.textContent = 'Felicidades, te encuentras por encima de la media de los estudiantes que aprobaron el examen ICFES SaberPro'
               resultadoDiv.removeAttribute('hidden')
             }else{
-                window.alert('Felicitaciones es muy posible que pases el examen ICFES SaberPro')
+                window.alert('Lo sentimos, te encuentras por debajo de la media de los estudiantes que aprobaron el examen ICFES SaberPro')
                 resultadoDiv.setAttribute('class', 'alert alert-danger');
-                resultadoDiv.textContent = 'Lo sentimos no tienes tantas posibilidades de pasar el examen ICFES SaberPro, pero ánimo aun queda tiempo para prepararte '
+                resultadoDiv.textContent = 'Lo sentimos, te encuentras por debajo de la media de los estudiantes que aprobaron el examen ICFES SaberPro'
                 resultadoDiv.removeAttribute('hidden')
               }
               setTimeout(() => {
